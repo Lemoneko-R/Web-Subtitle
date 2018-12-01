@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+    <meta charset="UTF-8" />
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="css.css" />
+    <title>JImaku</title>
+
+
+  <body style="margin: 0; background-color: #000" >
+    <div id="input_text" class="text input-text"></div>
+  <div id="input_text2" class="text input-text"></div>
+<div id="input_text3" class="text input-text"></div>
+<div id="input_text4" class="text input-text"></div><br><br><br><br><br><br><br>
+<div id="" class="text input-text" style="font-size:20px;">Made by point1reiya, Translate by Yandex Translator <br>この字幕の精度は100%ではありません - 의에 대한 구체적 부제목은 과목이 열 정확도는 100% <br> The subtitle of the accuracy is not 100% - 字幕的精确性不是100%</div>
+<script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+<script>
+setInterval(function(){
+$("#input_text").html("");
+$("#input_text2").html("");
+$("#input_text3").html("");
+$("#input_text4").html("");
+},20000);
+setInterval(function(){
+  $.get('tra.php', {         //GETメソッドでshow.phpに対して
+        text:$('#input_text').html()     //id属性nmの要素の値を
+        }, function(data){      //コールバック関数functionの引数として渡す。
+        $('#input_text2').html(data);   //処理結果はid属性resultにhtml表示
+    });
+  $.get('ch.php', {         //GETメソッドでshow.phpに対して
+        text:$('#input_text').html()     //id属性nmの要素の値を
+        }, function(data){      //コールバック関数functionの引数として渡す。
+        $('#input_text3').html(data);   //処理結果はid属性resultにhtml表示
+    });
+  $.get('kr.php', {         //GETメソッドでshow.phpに対して
+        text:$('#input_text').html()     //id属性nmの要素の値を
+        }, function(data){      //コールバック関数functionの引数として渡す。
+        $('#input_text4').html(data);   //処理結果はid属性resultにhtml表示
+    });
+},3000);
+</script>
+  </body>
+</html>
