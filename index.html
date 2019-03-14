@@ -16,6 +16,11 @@
 <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
 <script>
 setInterval(function(){
+var ssu = new SpeechSynthesisUtterance();
+ssu.text = $("#input_text").html();
+ssu.lang = 'ja-JP';
+speechSynthesis.speak(ssu);
+
 $("#input_text").html("");
 $("#input_text2").html("");
 $("#input_text3").html("");
@@ -37,6 +42,7 @@ setInterval(function(){
         }, function(data){      //コールバック関数functionの引数として渡す。
         $('#input_text4').html(data);   //処理結果はid属性resultにhtml表示
     });
+
 },3000);
 </script>
   </body>
